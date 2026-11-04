@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 營運加速計畫：以提高帶課產能為核心的內部行銷專案進度頁。">
+  <title>AI 營運加速計畫｜2026-11-04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Noto+Serif+TC:wght@700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f3f7f8;
+      --paper-2: #ffffff;
+      --ink: #12243a;
+      --ink-soft: #405267;
+      --line: #b9c5ce;
+      --orange: #ad360f;
+      --orange-on-dark: #ff9a6e;
+      --orange-soft: #f5ddd4;
+      --cyan: #32c6d4;
+      --cyan-soft: #cff5f3;
+      --yellow: #ffd84a;
+      --green: #14553f;
+      --max: 1180px;
+      --radius: 14px;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--yellow); color: var(--ink); }
+    a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      min-height: 58px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+    .topbar .project { color: var(--orange); }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+      gap: clamp(36px, 7vw, 96px);
+      align-items: center;
+      padding: 74px 0 66px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 330px;
+      height: 112px;
+      right: 0;
+      top: 13%;
+      background: var(--cyan);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 9ch;
+      margin-bottom: 28px;
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(64px, 9.3vw, 132px);
+      line-height: .98;
+      letter-spacing: -.04em;
+      text-wrap: balance;
+    }
+    .hero-copy {
+      max-width: 670px;
+      margin-bottom: 30px;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.65;
+    }
+    .proof-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+    .proof-line span {
+      padding: 8px 13px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-poster {
+      position: relative;
+      padding: 28px;
+      background: var(--ink);
+      color: var(--paper-2);
+      box-shadow: 22px 26px 55px rgba(18, 36, 58, .18);
+      transform: rotate(1.5deg);
+      animation: poster-settle .7s ease-out both;
+    }
+    @keyframes poster-settle { from { opacity: 0; transform: translateY(18px) rotate(1.5deg); } to { opacity: 1; transform: translateY(0) rotate(1.5deg); } }
+    .hero-poster::after {
+      content: "目前是驗證期";
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      padding: 8px 12px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      transform: rotate(3deg);
+    }
+    .poster-title { margin-bottom: 30px; color: var(--cyan); font-size: 14px; font-weight: 700; letter-spacing: .12em; }
+    .capacity-step { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 21px 0; border-top: 1px solid rgba(255,255,255,.27); }
+    .capacity-step:last-child { border-bottom: 1px solid rgba(255,255,255,.27); }
+    .capacity-step b { font-family: "Noto Serif TC", serif; font-size: 38px; line-height: 1.2; white-space: nowrap; color: var(--yellow); }
+    .capacity-step strong { display: block; margin-bottom: 3px; font-size: 16px; }
+    .capacity-step span { color: #bac8d6; font-size: 13px; }
+    .poster-note { margin: 25px 0 0; color: #bac8d6; font-size: 13px; }
+
+    .campaign-brief {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+    .brief-item { min-height: 150px; padding: 26px 30px; border-right: 1px solid var(--line); }
+    .brief-item:last-child { border-right: 0; }
+    .brief-item small { display: block; margin-bottom: 13px; color: var(--orange); font-size: 12px; font-weight: 900; letter-spacing: .1em; }
+    .brief-item strong { display: block; font-family: "Noto Serif TC", serif; font-size: 23px; line-height: 1.35; }
+
+    section { padding: 92px 0; }
+    .section-head { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); gap: 60px; align-items: start; margin-bottom: 58px; }
+    .section-head h2 {
+      margin-bottom: 0;
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(38px, 5.5vw, 72px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+    .section-head p { max-width: 630px; margin: 6px 0 0 auto; color: var(--ink-soft); font-size: 18px; }
+
+    .why { background: var(--ink); color: var(--paper-2); }
+    .why .section-head p { color: #c2ced9; }
+    .pain-list { border-top: 1px solid rgba(255,255,255,.3); }
+    .pain {
+      display: grid;
+      grid-template-columns: 90px 1.1fr .9fr;
+      gap: 30px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .pain .mark { color: var(--orange-on-dark); font-size: 38px; font-weight: 900; }
+    .pain h3 { margin: 0; font-size: clamp(24px, 3vw, 38px); line-height: 1.25; }
+    .pain p { margin: 0; color: #c2ced9; }
+
+    .big-idea { position: relative; overflow: hidden; background: var(--yellow); }
+    .big-idea::after {
+      content: "AI";
+      position: absolute;
+      right: -20px;
+      bottom: -100px;
+      color: rgba(18,36,58,.07);
+      font-family: "Noto Serif TC", serif;
+      font-size: 340px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .idea-statement { position: relative; z-index: 1; max-width: 960px; font-family: "Noto Serif TC", serif; font-size: clamp(46px, 7vw, 96px); font-weight: 900; line-height: 1.08; letter-spacing: -.04em; }
+    .idea-statement em { color: var(--ink); font-style: normal; text-decoration: underline 10px var(--orange); text-underline-offset: 8px; }
+    .idea-support { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 18px 34px; margin-top: 45px; font-size: 18px; font-weight: 700; }
+
+    .tracks { background: var(--paper-2); }
+    .track-list { border-top: 2px solid var(--ink); }
+    .track {
+      display: grid;
+      grid-template-columns: 180px minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 34px;
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .track-tag { align-self: start; width: fit-content; padding: 8px 12px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 900; letter-spacing: .08em; }
+    .track:nth-child(2) .track-tag { background: var(--cyan); color: var(--ink); }
+    .track:nth-child(3) .track-tag { background: var(--yellow); color: var(--ink); }
+    .track h3 { margin-bottom: 9px; font-family: "Noto Serif TC", serif; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.2; }
+    .track .promise { color: var(--ink-soft); font-size: 16px; }
+    .scenes { display: grid; gap: 15px; }
+    .scene { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
+    .scene i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; font-style: normal; font-size: 12px; font-weight: 900; }
+    .scene strong { display: block; margin-bottom: 2px; }
+    .scene span { color: var(--ink-soft); font-size: 14px; }
+
+    .proof { background: var(--cyan-soft); }
+    .proof-board { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 28px; }
+    .proof-main { padding: 34px; background: var(--paper-2); }
+    .proof-number { font-family: "Noto Serif TC", serif; font-size: clamp(70px, 10vw, 128px); font-weight: 900; line-height: .9; color: var(--orange); }
+    .proof-main h3 { margin: 16px 0 12px; font-size: 28px; }
+    .names { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .names span { padding: 7px 12px; border: 1px solid var(--ink); border-radius: 999px; font-size: 13px; font-weight: 700; }
+    .proof-side { display: grid; grid-template-rows: 1fr 1fr; gap: 18px; }
+    .proof-note { padding: 28px; background: var(--ink); color: var(--paper-2); }
+    .proof-note.alt { background: var(--orange); }
+    .proof-note small { display: block; margin-bottom: 10px; color: var(--cyan); font-weight: 900; letter-spacing: .1em; }
+    .proof-note.alt small { color: var(--ink); }
+    .proof-note strong { display: block; font-size: 22px; line-height: 1.35; }
+    .proof-note p { margin: 10px 0 0; color: #c2ced9; font-size: 14px; }
+    .proof-note.alt p { color: #3a2a25; }
+
+    .flight { background: var(--paper); }
+    .flight-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+    .phase { position: relative; min-height: 320px; padding: 30px 26px 34px; border-right: 1px solid var(--line); transition: background-color .3s ease, color .3s ease; }
+    .phase:last-child { border-right: 0; }
+    .phase.is-current { background: var(--ink); color: var(--paper-2); }
+    .phase time { display: block; margin-bottom: 60px; color: var(--orange); font-size: 13px; font-weight: 900; letter-spacing: .08em; }
+    .phase.is-current time { color: var(--orange-on-dark); }
+    .phase h3 { margin-bottom: 14px; font-family: "Noto Serif TC", serif; font-size: 30px; line-height: 1.2; }
+    .phase p { color: var(--ink-soft); font-size: 14px; }
+    .phase.is-current p { color: #c2ced9; }
+    .phase .status { position: absolute; left: 26px; bottom: 26px; font-size: 12px; font-weight: 900; }
+    .management-checkpoint { display: grid; grid-template-columns: 220px 1fr; gap: 28px; margin: 28px 0 0; padding: 22px 0; border-bottom: 2px solid var(--ink); }
+    .management-checkpoint strong { color: var(--orange); }
+    .management-checkpoint span { color: var(--ink-soft); }
+
+    .scoreboard { background: var(--orange-soft); }
+    .score-list { border-top: 2px solid var(--ink); }
+    .score-row { display: grid; grid-template-columns: 1.1fr .9fr 1.3fr; gap: 30px; align-items: center; padding: 28px 0; border-bottom: 1px solid rgba(18,36,58,.28); }
+    .score-row h3 { margin: 0; font-size: 23px; }
+    .score-status { font-weight: 900; }
+    .score-status.started { color: var(--green); }
+    .score-status.pending { color: #9a4b29; }
+    .score-row p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .why, .big-idea, .tracks, .proof, .scoreboard, .close { padding-inline: 8px; }
+    .close { padding-top: 110px; padding-bottom: 120px; background: var(--ink); color: var(--paper-2); }
+    .close-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 70px; align-items: end; }
+    .close h2 { max-width: 11ch; margin-bottom: 25px; font-family: "Noto Serif TC", serif; font-size: clamp(48px, 7vw, 94px); line-height: 1.08; letter-spacing: -.04em; }
+    .close .summary { max-width: 670px; color: #c2ced9; font-size: 18px; }
+    .next-list { border-top: 1px solid rgba(255,255,255,.35); }
+    .next-list div { padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,.35); }
+    .next-list strong { display: block; color: var(--yellow); font-size: 14px; }
+    .next-list span { color: #c2ced9; font-size: 14px; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 26px 0 36px; color: #6d6257; font-size: 12px; }
+
+    @media (max-width: 900px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; }
+      .hero::before { width: 220px; height: 88px; right: -7%; top: 8%; }
+      .hero-poster { max-width: 560px; transform: none; }
+      .section-head, .proof-board, .close-grid { grid-template-columns: 1fr; gap: 28px; }
+      .section-head p { margin-left: 0; }
+      .pain { grid-template-columns: 70px 1fr; }
+      .pain p { grid-column: 2; }
+      .track { grid-template-columns: 130px 1fr; }
+      .scenes { grid-column: 2; }
+      .flight-rail { grid-template-columns: repeat(2, 1fr); }
+      .phase:nth-child(2) { border-right: 0; }
+      .phase:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .topbar { min-height: 48px; font-size: 12px; letter-spacing: 0; }
+      .hero { padding: 54px 0 46px; }
+      h1 { max-width: 8ch; font-size: clamp(48px, 13.4vw, 58px); }
+      .hero-copy { font-size: 17px; }
+      .hero-poster { padding: 22px; }
+      .campaign-brief { grid-template-columns: 1fr; }
+      .brief-item { min-height: auto; padding: 20px 22px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .brief-item:last-child { border-bottom: 0; }
+      section { padding: 68px 0; }
+      .section-head { margin-bottom: 38px; }
+      .section-head h2 { font-size: 40px; }
+      .section-head p { font-size: 16px; }
+      .pain { grid-template-columns: 44px 1fr; gap: 14px; }
+      .pain .mark { font-size: 28px; }
+      .pain h3 { font-size: 24px; }
+      .idea-statement { font-size: 48px; }
+      .track { grid-template-columns: 1fr; gap: 20px; }
+      .scenes { grid-column: 1; }
+      .track-tag { margin-bottom: 2px; }
+      .proof-board { gap: 14px; }
+      .proof-main, .proof-note { padding: 22px; }
+      .flight-rail { grid-template-columns: 1fr; }
+      .phase { min-height: 250px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .phase:last-child { border-bottom: 0; }
+      .phase time { margin-bottom: 34px; }
+      .management-checkpoint { grid-template-columns: 1fr; gap: 8px; }
+      .score-row { grid-template-columns: 1fr; gap: 8px; }
+      .close { padding-top: 78px; padding-bottom: 86px; }
+      .close h2 { font-size: 49px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <span class="project">AI 營運加速計畫</span>
+    <span>給總經理的進度頁 · 2026.11.04</span>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">讓一個人，帶更多課。</h1>
+        <p class="hero-copy">這個 AI 助理專供 PM 使用，協助處理提醒、數字整理與工作交接，讓同一位 PM 在不犧牲品質的前提下，穩定承接更多課程。</p>
+        <div class="proof-line" aria-label="目前進度">
+          <span>6 位同事納入每日檢查</span>
+          <span>每日主動檢查已上線</span>
+          <span>下一步量出省時與產能</span>
+        </div>
+      </div>
+      <aside class="hero-poster" aria-label="帶課產能方向">
+        <div class="poster-title">帶課產能方向</div>
+        <div class="capacity-step"><b>1×</b><div><strong>現在</strong><span>先建立 PM 的實際帶課數基準</span></div></div>
+        <div class="capacity-step"><b>≈2×</b><div><strong>2026 年第 4 季暫定方向</strong><span>製課與交付流程完成第一輪自動化</span></div></div>
+        <div class="capacity-step"><b>→10×</b><div><strong>2027 年第 2 季長期方向</strong><span>課程企劃流程與自動派工成熟後再校正</span></div></div>
+        <p class="poster-note">2 倍與 10 倍目前是方向值，不是已完成的成果。</p>
+      </aside>
+    </section>
+
+    <div class="wrap campaign-brief" aria-label="專案重點">
+      <div class="brief-item"><small>使用對象</small><strong>PM（課程企劃）</strong></div>
+      <div class="brief-item"><small>希望改變什麼</small><strong>把 AI 助理變成每天工作的固定入口</strong></div>
+      <div class="brief-item"><small>怎樣才算成功</small><strong>同一個人能帶更多課，延誤與重工不增加</strong></div>
+    </div>
+
+    <section class="why">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>為什麼現在要做</h2>
+          <p>課程數增加時，真正先爆掉的通常不是工具，而是人的注意力：訊息散在不同地方、數字靠人工整理、進度靠人記得。</p>
+        </div>
+        <div class="pain-list">
+          <article class="pain"><span class="mark">01</span><h3>重要訊息容易漏在聊天室</h3><p>主管與跨部門來訊需要自己翻找、查資料，再重新整理背景。</p></article>
+          <article class="pain"><span class="mark">02</span><h3>看到異常時，往往已經太晚</h3><p>場次、報名、出席與購買資料分散，PM 花時間整理，主管晚一步才看到問題。</p></article>
+          <article class="pain"><span class="mark">03</span><h3>課一多，管理品質就靠個人撐住</h3><p>週報、追蹤與交接缺少一致節奏，新增課程往往等於增加更多人工與救火。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="big-idea">
+      <div class="wrap">
+        <div class="idea-statement">讓該看的事，<em>自己到人面前。</em></div>
+        <div class="idea-support">
+          <span>有異常才提醒</span>
+          <span>先找齊資料再回覆</span>
+          <span>數字每天自動到位</span>
+          <span>會前先把問題整理好</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracks">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>三個使用理由</h2>
+        </div>
+        <div class="track-list">
+          <article class="track">
+            <div><span class="track-tag">不漏事</span></div>
+            <div><h3>溝通不再卡在找資料</h3><p class="promise">縮短主管與跨部門回覆時間。</p></div>
+            <div class="scenes">
+              <div class="scene"><i>1</i><div><strong>下班前整理尚未回覆的訊息</strong><span>只留下真正需要處理的內容，降低重要事項漏接。</span></div></div>
+              <div class="scene"><i>2</i><div><strong>主管來訊時先找資料並準備回覆</strong><span>先查日曆、文件與決議，讓本人確認後再送出。</span></div></div>
+            </div>
+          </article>
+          <article class="track">
+            <div><span class="track-tag">看得早</span></div>
+            <div><h3>問題在變成救火前就被看見</h3><p class="promise">讓主管每天先看異常，再決定行動。</p></div>
+            <div class="scenes">
+              <div class="scene"><i>3</i><div><strong>場次未開或設定未完成時主動通知</strong><span>在截止前提醒負責人，降低最後一刻救火。</span></div></div>
+              <div class="scene"><i>4</i><div><strong>每天早上整理業績</strong><span>把昨日、本月與目標差距放在同一個畫面。</span></div></div>
+              <div class="scene"><i>5</i><div><strong>每週整理出席率與購買率</strong><span>先標出異常課程，讓週會時間用在找原因。</span></div></div>
+            </div>
+          </article>
+          <article class="track">
+            <div><span class="track-tag">會決策</span></div>
+            <div><h3>週會不再從整理資訊開始</h3><p class="promise">把會議時間還給判斷與行動。</p></div>
+            <div class="scenes">
+              <div class="scene"><i>6</i><div><strong>會前提醒週報並協助健檢</strong><span>核對數字、原因與下一步，避免會議重新整理一次資料。</span></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>第一批日常工作檢查已經開始</h2>
+          <p>第一輪檢查已成功執行。現在要看的不是「功能有沒有做」，而是同事會不會持續使用，以及使用後有沒有真的少漏事、少花時間。</p>
+        </div>
+        <div class="proof-board">
+          <div class="proof-main">
+            <div class="proof-number">6</div>
+            <h3>位同事參與測試</h3>
+            <p>每日檢查與主動提醒已開始運作。</p>
+            <div class="names"><span>Leo</span><span>美荷</span><span>Hua</span><span>Cheyenne</span><span>Irene</span><span>Apple</span></div>
+          </div>
+          <div class="proof-side">
+            <div class="proof-note"><small>目前進度</small><strong>已進入實際工作測試</strong><p>持續收集回饋，調整提醒內容與頻率。</p></div>
+            <div class="proof-note alt"><small>還要證明</small><strong>PM 會持續使用，而且真的能多帶課</strong><p>下一階段要量出省下的時間、減少的延誤與帶課數變化。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flight">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>推廣不是一次上線，而是四段成長</h2>
+          <p>先讓少數人真的用，再把資料接準、形成固定工作習慣，最後才擴大到更多課程與自動派工。</p>
+        </div>
+        <div class="flight-rail" aria-label="推廣四階段">
+          <article class="phase is-current" data-phase><time>現在 · 已開始</time><h3>開始檢查</h3><p>6 位同事納入每日檢查，先確認提醒有用、沒有過度打擾。</p><span class="status">目前所在階段</span></article>
+          <article class="phase" data-phase><time>11 月 · 近期</time><h3>資料準</h3><p>統一業績、出席、購買與退款的計算方式，補上廣告數據與銷售說明會內容。</p><span class="status">下一站</span></article>
+          <article class="phase" data-phase><time>12 月至第 1 季</time><h3>變習慣</h3><p>讓提醒、每日數字與週報健檢成為固定工作節奏，開始比較導入前後差異。</p><span class="status">形成日常</span></article>
+          <article class="phase" data-phase><time>2027 年第 2 季</time><h3>擴產能</h3><p>課程企劃流程達成 50% 自動化，系統開始協助派工，再校正帶課倍數。</p><span class="status">目標狀態</span></article>
+        </div>
+        <p class="management-checkpoint"><strong>下一次管理檢查：11 月底</strong><span>確認營收與轉換數字已統一、廣告與銷售說明會資料已接入，並決定哪些情境進入導入前後對照。</span></p>
+      </div>
+    </section>
+
+    <section class="scoreboard">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>最後只看四個生意結果</h2>
+          <p>使用人數只是起點。真正的成果是產能提升、處理更快、少出錯，而且沒有用品質換速度。</p>
+        </div>
+        <div class="score-list">
+          <div class="score-row"><h3>每人可承接課程數</h3><div class="score-status started">目前：1 倍基準期</div><p>同步追蹤每人帶課數，等真實基準穩定後再確認 2 倍與 10 倍方向。</p></div>
+          <div class="score-row"><h3>處理與回覆速度</h3><div class="score-status pending">待建立導入前基準</div><p>比較找資料、整理報表、回覆與完成工作的時間。</p></div>
+          <div class="score-row"><h3>漏接與延誤</h3><div class="score-status pending">已有提醒，尚未統計結果</div><p>記錄提醒後是否採取行動，以及從提醒到完成花多久。</p></div>
+          <div class="score-row"><h3>準時交付與重工</h3><div class="score-status pending">待和產能一起追蹤</div><p>確認課變多之後，準時交付率沒有下降、退件重工沒有增加。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="close">
+      <div class="wrap close-grid">
+        <div>
+          <h2>已經走出概念期，現在進入成效驗證期。</h2>
+          <p class="summary">目前確認的是：每日檢查能跑完，也能在需要時送出提醒。下一個關卡，是把數字接準、把課程企劃的時間花在哪裡盤清楚，然後用正式工作證明：AI 助理真的能讓同一個人帶更多課，而且更少延誤、更早看見問題。</p>
+        </div>
+        <div class="next-list" aria-label="近期三件事">
+          <div><strong>把數字接準</strong><span>統一營收與轉換的計算方式，補上廣告及銷售說明會資料。</span></div>
+          <div><strong>把時間量出來</strong><span>盤點課程企劃的高頻工作，建立導入前後比較。</span></div>
+          <div><strong>把有效做法留下</strong><span>只擴大真正省時、減少漏接、能重複使用的情境。</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>AI 營運加速計畫 · 內部進度頁</span>
+    <span>資料狀態截至 2026-11-04</span>
+  </footer>
+
+</body>
+</html>
